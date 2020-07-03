@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TypeWriter</title>
+</head>
+<body>
+
+<style>
+  body {
+    background: #0e1013;
+  }
+  h1 {
+    max-width: 480px;
+    text-align: center;
+    margin: 60px auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+  }
+
+  h1::after{
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca 0.7s infinite;
+  }
+
+  @keyframes pisca {
+    0%, 100%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0;
+    }
+  }
+</style>
+
+<h1>Cursos de UX/UI Design e Front End na Origamid</h1>
+
+<script>
+
+  function typeWriter(elemento){
+    const textoArray = elemento.innerHTML.split('');//divide o texto em diferentes partes do array// aqui vai dividir todas as letras pois não atribui um valor para ele buscar e dividir 
+    elemento.innerHTML = '';
+    console.log(textoArray);
+//forEach: para cada
+    textoArray.forEach((letra, i) => {
+      //console.log(letra);
+      setTimeout(() => elemento.innerHTML += letra, 75 * i);
+    });
+  }
+
+const titulo = document.querySelector('h1');
+typeWriter(titulo);
+
+
+</script>
+
+</body>
+</html>
